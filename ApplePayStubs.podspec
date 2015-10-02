@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
   s.author       = { "Stripe" => "support+github@stripe.com" }
   s.platform     = :ios, "6.0"
-  s.source       = { :git => "https://github.com/stripe/ApplePayStubs.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/lmcd/ApplePayStubs.git", :branch => "pixel-perfect" }
   s.source_files = "Classes", "Classes/**/*.{h,m}"
   s.resources    = "Classes/**/*.xib", "Classes/apple-pay-mini@2x.png"
   s.exclude_files   = "Classes/Exclude"
