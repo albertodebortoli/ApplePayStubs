@@ -241,10 +241,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 	
 	CGFloat x = 16.0;
 	
-	if (section == 0 || title == STPTestPaymentSectionTitlePayment) {
-		x = 0;
-	}
-	
 	UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(x, 0, tableView.frame.size.width, 0.5)];
 	
 	if ([title isEqualToString:STPTestPaymentSectionTitleTotalPayment]) {
