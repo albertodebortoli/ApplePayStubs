@@ -99,20 +99,7 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     }
 	
 	UIView *container = [[UIView alloc] initWithFrame:CGRectMake(375/2, 517, 0, 200)];
-	self.footerView = [[PKPaymentAuthorizationFooterView alloc] initWithFrame:CGRectZero];
-	
-	UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 400, 375, 200)];
-	[self.view addSubview:view1];
-
-    UITapGestureRecognizer *touchOnView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(makePayment:)];
-
-	[touchOnView setNumberOfTapsRequired:1];
-	[touchOnView setNumberOfTouchesRequired:1];
-	[view1 addGestureRecognizer:touchOnView];
-	
-	[self.footerView setTranslatesAutoresizingMaskIntoConstraints:YES];
-	[self.footerView setState:0];
-	[self.footerView setFrame:CGRectZero];
+	self.footerView = [UIView new];
 	
 	[container addSubview:self.footerView];
 	[self.view addSubview:container];
@@ -131,8 +118,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 	
 	UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithCustomView:button];
 	self.navigationItem.rightBarButtonItem = fixed;
-	
-	//[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -141,8 +126,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 }
 
 - (IBAction)makePayment:(id)sender {
-    self.footerView.state = 4;
-    
     PKPayment *payment = [PKPayment new];
     NSDictionary *card = self.cardStore.selectedItem;
 
@@ -167,8 +150,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     [self.delegate paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)auth
                                   didAuthorizePayment:payment
                                            completion:^(PKPaymentAuthorizationStatus status) {
-											   self.footerView.state = 5;
-											   
 											   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                                [self.delegate paymentAuthorizationViewControllerDidFinish:auth];
 											   });
@@ -383,7 +364,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
                                  didSelectShippingAddress:record
                                                completion:^(PKPaymentAuthorizationStatus status, NSArray *shippingMethods, NSArray *summaryItems) {
                                                    if (status == PKPaymentAuthorizationStatusFailure) {
-                                                       self.footerView.state = 6;
                                                        [self.delegate paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)self];
                                                        return;
                                                    }
