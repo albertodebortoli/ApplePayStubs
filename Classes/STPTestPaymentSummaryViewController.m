@@ -15,14 +15,6 @@
 #import "STPTestShippingMethodStore.h"
 #import "PKPayment+STPTestKeys.h"
 
-@interface PKPaymentAuthorizationFooterView : UIView {
-	
-}
-
-- (void)setState:(int)arg1;
-
-@end
-
 NSString *const STPTestPaymentAuthorizationSummaryItemIdentifier = @"STPTestPaymentAuthorizationSummaryItemIdentifier";
 NSString *const STPTestPaymentAuthorizationTestDataIdentifier = @"STPTestPaymentAuthorizationTestDataIdentifier";
 NSString *const STPTestPaymentAuthorizationTestTotalDataIdentifier = @"STPTestPaymentAuthorizationTestTotalDataIdentifier";
@@ -46,7 +38,7 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 @interface STPTestPaymentSummaryViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) PKPaymentRequest *paymentRequest;
 @property (nonatomic) NSArray *summaryItems;
-@property (nonatomic) PKPaymentAuthorizationFooterView *footerView;
+@property (nonatomic) UIView *footerView;
 @property (nonatomic) STPTestCardStore *cardStore;
 @property (nonatomic) STPTestAddressStore *billingAddressStore;
 @property (nonatomic) STPTestAddressStore *shippingAddressStore;
@@ -422,11 +414,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 		self.detailTextLabel.font = [UIFont systemFontOfSize:13.0];
 		
 		self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
-		UIButton *accessory = self.subviews[1];
-		UIImageView *imageView = accessory.subviews[0];
-		
-		imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     return self;
 }
@@ -438,11 +425,16 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 	
 	self.textLabel.frame = CGRectMake(111, self.textLabel.frame.origin.y + 1, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
 	
-	UIButton *accessory = self.subviews[1];
+	UIButton *accessory = [self.subviews lastObject];
 	
 	CGRect frame = accessory.frame;
 	frame.origin.x--;
 	accessory.frame = frame;
+
+	/*UIImageView *imageView = accessory.subviews[0];
+	
+	imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+	imageView.tintColor = [UIColor redColor];*/
 }
 @end
 
