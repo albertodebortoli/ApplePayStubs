@@ -105,12 +105,6 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
         [self didSelectShippingAddress];
     }
 	
-	UIView *container = [[UIView alloc] initWithFrame:CGRectMake(375/2, 517, 0, 200)];
-	self.footerView = [UIView new];
-	
-	[container addSubview:self.footerView];
-	[self.view addSubview:container];
-	
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     
     button.titleLabel.font = [UIFont systemFontOfSize:18];
