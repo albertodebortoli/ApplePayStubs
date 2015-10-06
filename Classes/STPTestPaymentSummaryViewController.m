@@ -111,13 +111,13 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 	[container addSubview:self.footerView];
 	[self.view addSubview:container];
 	
-	UIButton *button = [[UIButton alloc] init];
-	
-	[button setTitle:@"Cancel" forState:UIControlStateNormal];
-	[button setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
-	[button addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
-	
-	[button sizeToFit];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    button.titleLabel.font = [UIFont systemFontOfSize:18];
+    [button setTitle:@"Cancel" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [button sizeToFit];
 	
 	CGRect frame = button.frame;
 	frame.size.height += 1;
