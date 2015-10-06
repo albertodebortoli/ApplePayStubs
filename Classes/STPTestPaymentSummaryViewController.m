@@ -446,8 +446,10 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     frame.origin.x--;
     accessory.frame = frame;
     
-    UIImageView *imageView = accessory.subviews[0];
-    [accessory setImage:[imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    if (accessory.subviews.count > 0) {
+        UIImageView *imageView = accessory.subviews[0];
+        [accessory setImage:[imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
 }
 
 @end
