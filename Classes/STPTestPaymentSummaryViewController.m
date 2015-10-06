@@ -433,24 +433,23 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     return self;
 }
 
-- (void) layoutSubviews {
-	[super layoutSubviews];
-	
-	self.detailTextLabel.frame = CGRectMake(16, self.textLabel.frame.origin.y + 1, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
-	
-	self.textLabel.frame = CGRectMake(111, self.textLabel.frame.origin.y + 1, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
-	
-	UIButton *accessory = [self.subviews lastObject];
-	
-	CGRect frame = accessory.frame;
-	frame.origin.x--;
-	accessory.frame = frame;
-
-	/*UIImageView *imageView = accessory.subviews[0];
-	
-	imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-	imageView.tintColor = [UIColor redColor];*/
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.detailTextLabel.frame = CGRectMake(16, self.textLabel.frame.origin.y + 1, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
+    
+    self.textLabel.frame = CGRectMake(111, self.textLabel.frame.origin.y + 1, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
+    
+    UIButton *accessory = [self.subviews lastObject];
+    
+    CGRect frame = accessory.frame;
+    frame.origin.x--;
+    accessory.frame = frame;
+    
+    UIImageView *imageView = accessory.subviews[0];
+    [accessory setImage:[imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
 }
+
 @end
 
 @implementation STPTestPaymentDataCell
