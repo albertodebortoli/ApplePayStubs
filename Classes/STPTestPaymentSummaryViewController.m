@@ -61,6 +61,21 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     return self;
 }
 
+- (void)setDelegate:(id<PKPaymentAuthorizationViewControllerDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    PKContact *contact = [PKContact new];
+    PKPaymentAuthorizationViewController *auth = (PKPaymentAuthorizationViewController *)self;
+    [self.delegate paymentAuthorizationViewController:auth didSelectShippingContact:contact completion:^(PKPaymentAuthorizationStatus status, NSArray * shippingMethods, NSArray *summaryItems) {
+
+        self.summaryItems = summaryItems;
+        self.shippingMethodStore = [[STPTestShippingMethodStore alloc] initWithShippingMethods:shippingMethods];
+        
+        [self.tableView reloadData];
+    }];
+}
+
 - (void)updateSectionTitles {
     NSMutableArray *array = [NSMutableArray array];
     [array addObject:STPTestPaymentSectionTitleCards];
