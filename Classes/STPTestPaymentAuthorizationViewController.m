@@ -74,12 +74,28 @@
 @end
 
 @implementation STPTestPaymentPresentationController
+
 - (CGRect)frameOfPresentedViewInContainerView {
 	CGRect rect = [super frameOfPresentedViewInContainerView];
 	rect.origin.y += 200;
 	rect.size.height -= 200;
 	return rect;
 }
+
+- (void)dismissalTransitionWillBegin {
+	STPTestPaymentAuthorizationViewController *vc = (STPTestPaymentAuthorizationViewController *)self.presentedViewController;
+	
+	CABasicAnimation *fadeInAnimation;
+	fadeInAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+	fadeInAnimation.duration = 0.15;
+	fadeInAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+	fadeInAnimation.toValue = [NSNumber numberWithFloat:0.0];
+	
+	vc.dimmingView2.layer.opacity = 0.0;
+	
+	[vc.dimmingView2.layer addAnimation:fadeInAnimation forKey:@"opacity"];
+}
+
 @end
 
 #endif
