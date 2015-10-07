@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -24,11 +24,35 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlZ-PJ-h4w">
                                     <rect key="frame" x="0.0" y="0.0" width="298" height="407"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freeformatter-output.png" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-p4-cBy">
+                                            <rect key="frame" x="128" y="322" width="43" height="43"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="NVq-Y2-3z9"/>
+                                                <constraint firstAttribute="height" constant="43" id="opN-28-4kX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.33300000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disabled for demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euj-S4-tdj">
+                                            <rect key="frame" x="8" y="371.5" width="282" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="Euj-S4-tdj" firstAttribute="leading" secondItem="LlZ-PJ-h4w" secondAttribute="leading" constant="8" id="6Hn-z9-Wnr"/>
+                                        <constraint firstItem="4cq-p4-cBy" firstAttribute="centerX" secondItem="LlZ-PJ-h4w" secondAttribute="centerX" id="Aty-ks-VBB"/>
+                                        <constraint firstAttribute="bottom" secondItem="Euj-S4-tdj" secondAttribute="bottom" constant="15" id="T4I-Tb-j4h"/>
+                                        <constraint firstAttribute="bottom" secondItem="4cq-p4-cBy" secondAttribute="bottom" constant="42" id="gmL-rs-7ej"/>
+                                        <constraint firstAttribute="trailing" secondItem="Euj-S4-tdj" secondAttribute="trailing" constant="8" id="mSI-aP-6eP"/>
+                                    </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7qR-pQ-g0s">
-                                    <rect key="frame" x="0.0" y="44" width="298" height="363"/>
+                                    <rect key="frame" x="0.0" y="44" width="298" height="265"/>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -50,7 +74,7 @@
                                 <constraint firstAttribute="trailing" secondItem="LlZ-PJ-h4w" secondAttribute="trailing" id="3p0-uy-xwd"/>
                                 <constraint firstItem="LlZ-PJ-h4w" firstAttribute="leading" secondItem="NKM-mg-qA0" secondAttribute="leading" id="LvT-4S-7mD"/>
                                 <constraint firstAttribute="trailing" secondItem="7qR-pQ-g0s" secondAttribute="trailing" id="egN-eM-3ox"/>
-                                <constraint firstAttribute="bottom" secondItem="7qR-pQ-g0s" secondAttribute="bottom" id="gIN-b2-f8j"/>
+                                <constraint firstAttribute="bottom" secondItem="7qR-pQ-g0s" secondAttribute="bottom" constant="98" id="gIN-b2-f8j"/>
                                 <constraint firstItem="LlZ-PJ-h4w" firstAttribute="top" secondItem="NKM-mg-qA0" secondAttribute="top" id="odB-pZ-FnA"/>
                                 <constraint firstItem="7qR-pQ-g0s" firstAttribute="top" secondItem="NKM-mg-qA0" secondAttribute="top" constant="44" id="qf8-ik-74V"/>
                             </constraints>
@@ -80,5 +104,6 @@
     </objects>
     <resources>
         <image name="apple-pay-mini.png" width="45" height="22"/>
+        <image name="freeformatter-output.png" width="86" height="86"/>
     </resources>
 </document>
