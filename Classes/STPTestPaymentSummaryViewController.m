@@ -49,7 +49,7 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 @implementation STPTestPaymentSummaryViewController
 
 - (instancetype)initWithPaymentRequest:(PKPaymentRequest *)paymentRequest {
-    self = [self initWithNibName:nil bundle:nil];
+    self = [self initWithNibName:nil bundle:[NSBundle bundleForClass:[STPTestPaymentSummaryViewController class]]];
     if (self) {
         _paymentRequest = paymentRequest;
         _summaryItems = paymentRequest.paymentSummaryItems;
