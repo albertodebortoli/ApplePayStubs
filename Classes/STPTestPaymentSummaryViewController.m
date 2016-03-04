@@ -96,10 +96,10 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateSectionTitles];
-	self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView registerClass:[STPTestPaymentSummaryItemCell class] forCellReuseIdentifier:STPTestPaymentAuthorizationSummaryItemIdentifier];
     [self.tableView registerClass:[STPTestPaymentDataCell class] forCellReuseIdentifier:STPTestPaymentAuthorizationTestDataIdentifier];
-	[self.tableView registerClass:[STPTestPaymentTotalDataCell class] forCellReuseIdentifier:STPTestPaymentAuthorizationTestTotalDataIdentifier];
+    [self.tableView registerClass:[STPTestPaymentTotalDataCell class] forCellReuseIdentifier:STPTestPaymentAuthorizationTestTotalDataIdentifier];
 	
     if (self.paymentRequest.requiredShippingAddressFields != PKAddressFieldNone) {
         [self didSelectShippingAddress];
@@ -108,17 +108,18 @@ NSString *const STPTestPaymentSectionTitleTotalPayment = @"Total";
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     
     button.titleLabel.font = [UIFont systemFontOfSize:18];
+    button.tintColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     [button setTitle:@"Cancel" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     
     [button sizeToFit];
 	
-	CGRect frame = button.frame;
-	frame.size.height += 1;
-	button.frame = frame;
-	
-	UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithCustomView:button];
-	self.navigationItem.rightBarButtonItem = fixed;
+    CGRect frame = button.frame;
+    frame.size.height += 1;
+    button.frame = frame;
+    
+    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = fixed;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
